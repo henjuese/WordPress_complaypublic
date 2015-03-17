@@ -23,47 +23,24 @@
 <?php include('includes/subtopbanner.php') ?>
 </div>
 <div id="divcom">
-	<div class="main">
-		
-	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/banner.js"></script>
+<div id="page-main">
 	<?php if(have_posts()) : ?>
 	<?php while(have_posts()) : the_post(); ?>
-	<script type="text/javascript">
-jQuery(document).ready(function($){
-$(".weisaylink a").each(function(e){
-	$(this).prepend("<img src=http://www.google.com/s2/favicons?domain="+this.href.replace(/^(http:\/\/[^\/]+).*$/, '$1').replace( 'http://', '' )+" style=float:left;padding:5px;>");
-}); 
-});
-</script>
-	<div id="divleft">
-		<div id="single_list">
-			<h2>
-				<?php the_title(); ?></h2>
-			<div class="hr"></div>
-			<div class="single_content">
-				<p> <b>链接名称</b>
-					：
-					<a href="<?php bloginfo('siteurl'); ?>
-						/">
-						<strong>
-							<?php bloginfo('name'); ?></strong>
-					</a>
-					<br /> <b>链接地址</b>
-					：
-					<a href="<?php bloginfo('siteurl'); ?>
-						/">
-						<?php bloginfo('siteurl'); ?>/</a>
-				</p>
-				<div class="links">
-					<ul>
-						<?php wp_list_bookmarks('orderby=link_id&categorize=0&title_li='); ?></ul>
-				</div>
+	<div id="page_list">
+		<h2><?php the_title(); ?></h2>
+		<div class="hr"></div>
+		<div class="page_content">
+			<div class="links">
+				<ul>
+					<?php wp_list_bookmarks('orderby=link_id&categorize=0&title_li='); ?>
+				</ul>
 			</div>
 		</div>
 	</div>
-	<?php comments_template(); ?></div>
+	<?php comments_template(); ?>
+</div>
 <?php endwhile; ?>
 <?php endif; ?>
-<?php get_sidebar(); ?></div>
+</div>
 <div class="clear"></div>
 <?php get_footer(); ?>

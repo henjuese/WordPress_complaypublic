@@ -9,7 +9,6 @@
     <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="<?php bloginfo('rss2_url'); ?>" />
     <link rel="alternate" type="application/atom+xml" title="<?php bloginfo('name'); ?> Atom Feed" href="<?php bloginfo('atom_url'); ?>" />
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
-    <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/semantic.css" />
 
     <?php wp_enqueue_script('jquery'); ?>
     <?php wp_head(); ?>
@@ -26,7 +25,8 @@
     <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/jquery.lazyload.js"></script>
     <SCRIPT type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/mobanwang.js"></SCRIPT>
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/scrolltopcontrol.js"></script>
-    <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/semantic.min.js"></script>
+
+     <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/jquery.nicescroll.min.js"></script>
     
 
     <script type="text/javascript">
@@ -36,6 +36,7 @@
             effect      : "fadeIn",
             threshold : 150                      
         });
+        $("html").niceScroll({cursorcolor:"#DDDDDD"});
         //首页固定浮动框
         $(".side ul li").hover(function(){
             $(this).find(".sidebox").stop().animate({"width":"42px"},200).css({"opacity":"1","filter":"Alpha(opacity=100)","background":"#000"});    
@@ -45,9 +46,9 @@
             $(this).find(".sidespan").hide();
         });
        
-        $(".nx-pop-weixin").click(function() {
+        /*$(".nx-pop-weixin").click(function() {
             $('.weixin.ui.modal').modal('show');
-        });
+        });*/
          jQuery(".picScroll-left").slide({mainCell:".bd ul",autoPage:true,effect:"left",autoPlay:true,scroll:1,vis:5});
     });
     

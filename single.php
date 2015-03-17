@@ -33,14 +33,14 @@
             <h2>
                 <?php the_title(); ?></h2>
             <div class="hr"></div>
-            <p>
+            <p class="single-info">
                 <?php the_time('Y年m月d日') ?>
                 |　作者:
                 <?php the_author (); ?>
                 |　分类:
                 <?php the_category(', ') ?>
                 |
-                <?php if(function_exists('the_views')) { print '被围观 '; the_views();  } ?>
+                <?php if(function_exists('the_views')) { print '被浏览 '; the_views();  } ?>
                 <?php edit_post_link('编辑', '　|　'); ?></p>
             <?php if(get_option('lovnvns_single_ad')!="")
                 echo '<div id="lovnvns_ad">'.get_option('lovnvns_single_ad').'</div>
@@ -51,60 +51,6 @@
     </div>
 </div>
 <?php wp_link_pages(); ?>
-<!-- <div id="divleft">
-<div id="single_list">
-    本文固定链接：
-    <a href="<?php the_permalink() ?>
-        " title="
-        <?php the_title(); ?>
-        " rel="bookmark">
-        <?php the_permalink() ?></a>
-</div>
-</div>
--->
-<!-- <div id="divleft">
-<div id="single_list">
-<div class="content_tx">
-    <?php echo get_avatar( get_the_author_email(), '80' ); ?></div>
-<div class="content_sm">
-    本文章由
-    <a href="<?php bloginfo('siteurl'); ?>
-        /">
-        <strong>
-            <?php the_author() ?></strong>
-    </a>
-    于
-    <?php the_time('Y年m月d日') ?>
-    发布在
-    <?php the_category(', ') ?>
-    分类下，
-    <?php if (('open' == $post->
-    comment_status) && ('open' == $post->ping_status)) {?>您可以
-    <a href="#respond">发表评论</a>
-    ，并在保留
-    <a href="<?php the_permalink() ?>" rel="bookmark">原文地址</a>
-    及作者的情况下
-    <a href="<?php trackback_url(); ?>" rel="trackback">引用</a>
-    到你的网站或博客。
-    <?php } elseif (('open' == $post->
-    comment_status) && !('open' == $post->ping_status)) { ?>
-通告目前不可用，你可以至底部留下评论。
-    <?php } ?>
-    <br/>
-    <span onClick='copyToClipBoard()' class="fz">+复制链接</span>
-    转载请注明：
-    <a href="<?php the_permalink() ?>
-        " rel="bookmark" title="本文固定链接
-        <?php the_permalink() ?>
-        ">
-        <?php the_title(); ?>
-        -
-        <?php bloginfo('name');?></a>
-    <br/>
-    <?php the_tags('关键字：', ', ', ''); ?></div>
-</div>
-</div>
--->
 <div id="divleft">
 <div id="single_list">
 <div class="single_listl">
@@ -115,32 +61,23 @@
 </div>
 <div id="divleft">
 <div id="single_list">
-<h2>好文章就要一起分享！</h2>
 <!-- Baidu Button BEGIN -->
-<div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare">
-    <a class="bds_qzone"></a>
-    <a class="bds_tqq"></a>
-    <a class="bds_tsina"></a>
-    <a class="bds_renren"></a>
-    <a class="bds_ty"></a>
-    <a class="bds_ff"></a>
-    <a class="bds_fbook"></a>
-    <a class="bds_baidu"></a>
-    <a class="bds_hi"></a>
-    <a class="bds_zx"></a>
-    <a class="bds_douban"></a>
-    <a class="bds_t163"></a>
-    <a class="bds_xg"></a>
-    <a class="bds_qq"></a>
-    <a class="bds_tieba"></a>
-    <span class="bds_more">更多</span>
-    <a class="shareCount"></a>
+<div class="bdsharebuttonbox">
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+    <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+    <a href="#" class="bds_taobao" data-cmd="taobao" title="分享到我的淘宝"></a>
+    <a href="#" class="bds_bdhome" data-cmd="bdhome" title="分享到百度新首页"></a>
+    <a href="#" class="bds_tsohu" data-cmd="tsohu" title="分享到搜狐微博"></a>
+    <a href="#" class="bds_tqf" data-cmd="tqf" title="分享到腾讯朋友"></a>
+    <a href="#" class="bds_mail" data-cmd="mail" title="分享到邮件分享"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
 </div>
-<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=730973" ></script>
-<script type="text/javascript" id="bdshell_js"></script>
-<script type="text/javascript">
-    document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + new Date().getHours();
-</script>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":["mshare","qzone","sqq","weixin","tsina","renren","bdhome","bdysc","taobao","tqq","tqf","mail","tsohu","copy","print"],"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
 <!-- Baidu Button END -->
 </div>
 </div>

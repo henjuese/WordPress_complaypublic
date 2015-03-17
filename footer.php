@@ -32,7 +32,7 @@
 			</a>
 		</li>
 		<li>
-			<a href="tencent://message/?uin=<?php if(get_option('lovnvns_rss')!="") echo get_option('lovnvns_rss'); ?>&Site=在线QQ&Menu=yes">
+			<a href="tencent://message/?uin=<?php if(get_option('lovnvns_rss')!="") echo get_option('lovnvns_rss'); ?>&Site=www.baidu.com&Menu=yes">
 				<div class="sidebox">
 				    <img src="<?php bloginfo('template_url'); ?>/images/side/side_icon04.png">QQ客服
 				</div>
@@ -57,11 +57,11 @@
 		<li style="border:none;"><a href="javascript:goTop();" class="sidetop"><img src="<?php bloginfo('template_url'); ?>/images/side/side_icon05.png"></a></li>
 	</ul>
 </div>
-<div class="weixin ui modal"> <i class="close icon"></i>
+<!-- <div class="weixin ui modal"> <i class="close icon"></i>
 	<div class="" >
 		<img class="weixin" width="230" height="230" src="<?php if(get_option('lovnvns_sitemap')!="") echo get_option('lovnvns_sitemap'); ?>">
 	</div>
-</div>
+</div> -->
 
 
 </body>

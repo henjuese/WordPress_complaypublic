@@ -165,7 +165,7 @@ function lovnvns_form() {
                 </td>
             </tr>
 			<tr valign="top">
-                <th scope="row"><label>右侧关于我们地址</label></th>
+                <th scope="row"><label>关于我们地址</label></th>
                 <td>
                     <textarea style="width:35em; height:2em;" name="lovnvns_about"><?php echo get_option('lovnvns_about'); ?></textarea>
                     <br />
@@ -174,9 +174,9 @@ function lovnvns_form() {
         	</tr>
 			
 			<tr valign="top">
-                <th scope="row"><label>右侧百度地图地址</label></th>
+                <th scope="row"><label>百度地图地址</label></th>
                 <td>
-                    <textarea style="width:35em; height:2em;" name="lovnvns_sitemap_baidu"><?php echo get_option('lovnvns_sitemap_baidu'); ?></textarea>
+                    <textarea style="width:35em; height:5em;" name="lovnvns_sitemap_baidu"><?php echo get_option('lovnvns_sitemap_baidu'); ?></textarea>
                     <br />
                     <span class="description">输入百度地图地址，不输入则为空</span>
                 </td>
@@ -233,7 +233,7 @@ function lovnvns_form() {
             <tr valign="top">
                 <th scope="row"><label>banner广告</label></th>
                 <td>
-                    <textarea style="width:35em; height:10em;" name="lovnvns_banner_ad"><?php echo get_option('lovnvns_banner_ad'); ?></textarea>
+                    <textarea style="width:38em; height:10em;" name="lovnvns_banner_ad"><?php echo get_option('lovnvns_banner_ad'); ?></textarea>
                     <br />
 					<span class="description">banner广告代码，推荐大小： size: 980*180<br />不设置则为空<br />示例：<DIV class="dp-highlighter nogutter"style="width:420px;"><DIV class=bar></DIV>
 <OL class=dp-c start=0>

@@ -5,7 +5,8 @@
 		当前位置：
 		<a href="<?php bloginfo('siteurl'); ?>/" title="返回首页">首页</a>
 		>
-		<?php echo is_wp_error($cat_parents=get_category_parents( get_query_var('cat') , true , ' >' ))?"":$cat_parents ?>文章
+		<?php echo is_wp_error($cat_parents=get_category_parents( get_query_var('cat') , true , ' >
+		' ))?"":$cat_parents ?>文章
 		<?php } ?>
 		<?php if ( is_month() ) { ?>
 		当前位置：
@@ -43,25 +44,22 @@
 		<?php } ?>
 		<?php } ?></div>
 	<!-- <div id="gongaor">
-		建站日期： <strong><?php echo get_option('lovnvns_date');?></strong>
-		运行天数： <strong><?php echo floor((time()-strtotime(get_option('lovnvns_date')))/86400); ?></strong>
-		天　最后更新：
-		<strong>
-			<?php $last = $wpdb->
-			get_results("SELECT MAX(post_modified) AS MAX_m FROM $wpdb->posts WHERE (post_type = 'post' OR post_type = 'page') AND (post_status = 'publish' OR post_status = 'private')");$last = date('Y-n-j', strtotime($last[0]->MAX_m));echo $last; ?></strong> 
-	</div> -->
+	建站日期： <strong><?php echo get_option('lovnvns_date');?></strong>
+	运行天数： <strong><?php echo floor((time()-strtotime(get_option('lovnvns_date')))/86400); ?></strong>
+	天　最后更新：
+	<strong>
+		<?php $last = $wpdb->
+		get_results("SELECT MAX(post_modified) AS MAX_m FROM $wpdb->posts WHERE (post_type = 'post' OR post_type = 'page') AND (post_status = 'publish' OR post_status = 'private')");$last = date('Y-n-j', strtotime($last[0]->MAX_m));echo $last; ?></strong> 
+</div>
+-->
 </div>
 <div id="divcom">
-     <?php include('includes/subtopbanner.php') ?>
-	<div class="main">
-		
-	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/banner.js"></script>
+<?php include('includes/subtopbanner.php') ?>
+<div class="main">
 	<?php if(have_posts()) : ?>
 	<?php while(have_posts()) : the_post(); ?>
 	<div id="divleft">
 		<div id="post_list">
-			<span>
-				<?php comments_popup_link ('0°','+1°','+%°'); ?></span>
 			<h2>
 				<a href="<?php the_permalink() ?>
 					" rel="bookmark" title="
@@ -75,7 +73,7 @@
 				| 作者:
 				<?php the_author (); ?>
 				|
-				<?php if(function_exists('the_views')) { print '被围观 '; the_views();  } ?>
+				<?php if(function_exists('the_views')) { print '浏览次数 '; the_views();  } ?>
 				<?php edit_post_link('编辑', ' | '); ?></p>
 			<div id="post_listl">
 				<?php include('includes/thumbnail.php'); ?></div>

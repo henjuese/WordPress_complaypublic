@@ -12,9 +12,8 @@
 </div>
 <?php } ?>
 <!--公告start-->
-<div id="gongaobox">
-	<span></span>
-	<div id="gongao">
+<div id="gonggao">
+<img src="<?php bloginfo('template_directory'); ?>/images/gonggao_03.png">
 	        <!--自己做了一个动态头部公告-->
 		    <ul>
 				<?php
@@ -36,7 +35,6 @@
 				</li>
 				<?php  endwhile;  endif;  ?>
 			</ul>
-	</div>
 </div>
 <!--公告end-->
 
@@ -56,17 +54,18 @@
 			?>
 			<?php while (have_posts()) : the_post(); ?>
         	<div class="title">
-        		<span><a>关于企业</a></span><br>
-                <b>About Our Company</b>               
+        		<span><a>关于企业</a></span> 
+                <a target="_black" href="<?php the_permalink(); ?>" title="关于企业" class="more fr">more</a>        
             </div>
             <div class="tx">
             	<div class="editor1">
-            	<div style="width:150px;height:150px;float:left;"><?php echo get_the_post_thumbnail($post_id, 'thumbnail'); ?></div>
-	            	<!-- <img src="images/vido_03.jpg" style="width: 118px; height: 175px; float: left; margin-left: 10px; margin-right: 10px; " /> -->
+	            	<div class="aboutus-img">
+	            	<?php echo get_the_post_thumbnail($post_id, 'thumbnail'); ?>
+	            	</div>
 					<strong><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><span style="color:#006400;"><?php the_title(); ?></span></a></strong>
 	            	<br />
 	&nbsp; &nbsp; &nbsp; &nbsp; <?php echo mb_strimwidth(strip_tags(apply_filters('the_content', $post->
-					post_content)), 0, 352,"……"); ?>
+					post_content)), 0, 422,"……"); ?>
 	            	<div class="clear"></div>
           		</div>
             </div>
@@ -75,9 +74,8 @@
 	<!-- end: info un -->
     
 	<div class="news x c2">
-        <div class="title"> <span><a href="" title="新闻动态">新闻动态</a></span><br>
-          <b>News</b>
-          <!-- <a href="" title="新闻动态"class="more fr">更多>></a> -->
+        <div class="title"> <span><a target="_black" href="archives/category/compnews/" title="新闻动态">新闻动态</a></span>
+         <a href="archives/category/compnews/" target="_black" title="新闻动态"class="more fr">more</a>
         </div>
         <div class="tx">
           <div>
@@ -85,10 +83,10 @@
           	     <?php
 			        $sticky = get_option('sticky_posts');
 			        rsort( $sticky );
-			        $sticky = array_slice( $sticky, 1, 4);
+			        $sticky = array_slice( $sticky, 1, 5);
 					
 			        query_posts( array( 'post__in' =>$sticky,
-			        	                 'showposts' => 4,
+			        	                 'showposts' => 5,
 			                           'caller_get_posts' => 1 ) );
 			        if (have_posts()) :
 			          while (have_posts()) : the_post();
@@ -103,16 +101,14 @@
           <div class="clear"></div>
         </div>
     </div>
-	
-</div>
 
-<!--图片展示start-->
+    <!--图片展示start-->
 <?php if (get_option('lovnvns_show_on') == '1') { ?>
 <div class="picScroll-title">
 	<div class="product">
     	<div class="title">
-        	<span><a href="" title="产品展示">产品展示</a></span><br>
-      		<b>Procucts</b>
+        	<span><a href="" title="产品展示">产品展示</a></span>
+      		<a href="products/" target="_black" title="产品展示"class="more fr">more</a>
         </div>
     </div>
     <div class="clear"></div>
@@ -128,8 +124,15 @@
 				<?php while (have_posts()) : the_post(); ?>
 				<li>
 					<div class="pic">
-					<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-					<img src="<?php echo catch_the_image($post->ID)?>"/></a>
+					<a href="<?php the_permalink(); ?>" target="_black" title="<?php the_title(); ?>">
+					
+                    <?php if (has_post_thumbnail()) { 
+						       the_post_thumbnail('thumbnail'); 
+				           }
+			              else { ?>
+							   <img src="<?php echo catch_first_image() ?>" alt="<?php the_title(); ?>"/>
+					 <?php } ?>
+					</a>
 					</div>
 					<?php //echo get_the_post_thumbnail($post->ID, 'thumbnail'); ?>
 					<div class="title">
@@ -144,29 +147,18 @@
 <?php { echo ''; } ?>
 <?php } else { } ?>
 <!--图片展示end-->
+	
+</div>
+
+
 
 </div>
-<div id="botcont">
-	<!-- <div id="botcontbar">
-		<span>
-		<a href="<?php if(get_option('lovnvns_links')!="") echo get_option('lovnvns_links') ?>">更多链接</a>
-		</span>
-		<h3>友情链接</h3>
-	</div>
-	<div id="botcontbody">
-		<ul>
-		<?php wp_list_bookmarks('title_li=&categorize=0&orderby=rand&show_images=0'); ?>
-		</ul>
-	</div> -->
-	<!--友情链接-->
 <div class="index-link linkx">
 	<a href="<?php if(get_option('lovnvns_links')!="") echo get_option('lovnvns_links') ?>"><h3 class="title png"> 友情链接:</h3></a>
     	<ul class='list-none'>
         	<?php wp_list_bookmarks('title_li=&categorize=0&orderby=rand&show_images=0'); ?>
        </ul>
 </div> 
-
-</div>
 
 <div class="clear"></div>
 <?php get_footer(); ?>
